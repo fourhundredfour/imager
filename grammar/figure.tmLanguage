@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>name</key>
+    <string>Figure String</string>
+    <key>scopeName</key>
+    <string>source.figurestring</string>
+    <key>fileTypes</key>
+    <array>
+        <string>figstr</string>
+    </array>
+    <key>patterns</key>
+    <array>
+        <dict>
+            <key>include</key>
+            <string>#part</string>
+        </dict>
+    </array>
+    <key>repository</key>
+    <dict>
+        <key>part</key>
+        <dict>
+            <key>patterns</key>
+            <array>
+                <dict>
+                    <key>match</key>
+                    <string>\b([a-z]{2})-(\d+)(?:-(\d+))*\b</string>
+                    <key>captures</key>
+                    <dict>
+                        <key>1</key>
+                        <dict>
+                            <key>name</key>
+                            <string>entity.name.component.figurestring</string>
+                        </dict>
+                        <key>2</key>
+                        <dict>
+                            <key>name</key>
+                            <string>constant.numeric.set-id.figurestring</string>
+                        </dict>
+                        <key>3</key>
+                        <dict>
+                            <key>name</key>
+                            <string>constant.numeric.color-id.figurestring</string>
+                        </dict>
+                    </dict>
+                </dict>
+            </array>
+        </dict>
+    </dict>
+</dict>
+</plist>

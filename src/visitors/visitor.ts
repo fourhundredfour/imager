@@ -6,4 +6,6 @@ export interface Visitor<T> {
   visitComponent(node: Node): T;
   visitSet(node: Node): T;
   visitColor(node: Node): T;
+  visitLetter(node: Node): T;
+  visitDigit(node: Node): T;
 }

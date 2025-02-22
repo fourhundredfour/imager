@@ -11,9 +11,12 @@ function getTree(input: string): Node {
   return Builder.build(ast);
 }
 
-const tree = getTree(
-  "hr-5619-1404.hd-629-3.ch-3881-1334.lg-3006-89-1335.sh-5670-1334.he-3070-66.fa-5467.ca-3885-66-66.cc-5800-89-1334"
-);
+const figure =
+  "hr-5619-1404.hd-629-3.ch-3881-1334.lg-3006-89-1335.sh-5670-1334.he-3070-66.fa-5467.ca-3885-66-66.cc-5800-89-1334";
+
+const tree = getTree(figure);
+
+console.log("Before running visitor: ", figure);
 
 const visitor = new FigureStringVisitor();
-console.log(tree.accept(visitor));
+console.log("Visitor: ", tree.accept(visitor));

@@ -5,3 +5,4 @@ export * from "./node";
 export * from "./part_node";
 export * from "./set_node";
 export * from "./builder";
+export * from "./letter_node";

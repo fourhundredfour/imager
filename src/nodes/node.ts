@@ -1,6 +1,5 @@
 import type { IToken, TokenError } from "ebnf";
 import type { Visitor } from "../visitors";
-import { nodeMap } from "./builder";
 
 export abstract class Node implements IToken {
   type: string;
@@ -14,8 +13,8 @@ export abstract class Node implements IToken {
   lookup?: boolean;
   children: IToken[];
   parent: IToken;
-  nodeChildren: Node[];
-  nodeParent: Node;
+  nodeChildren: Node[] = [];
+  nodeParent?: Node;
 
   constructor(token: IToken) {
     this.type = token.type;
@@ -29,17 +28,7 @@ export abstract class Node implements IToken {
     this.lookup = token.lookup;
     this.parent = token.parent;
     this.children = token.children;
-    this.nodeChildren = this.children.map(Node.fromToken);
-    this.nodeParent = Node.fromToken(this.parent);
   }
 
   abstract accept<T>(visitor: Visitor<T>): T;
-
-  static fromToken(token: IToken): Node {
-    const node = nodeMap[token.type];
-    if (!node) {
-      throw new Error(`Unknown node: ${token.type}`);
-    }
-    return new node(token);
-  }
 }
